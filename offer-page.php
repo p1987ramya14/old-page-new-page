@@ -4,6 +4,6 @@
     <title>Offer Page</title>
 </head>
 <body>
-    <h1>https://roastandrelish.store/honey-chicken-recipe-french/</h1>
+    <h1> </h1>
 </body>
 </html>
