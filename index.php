@@ -37,10 +37,10 @@ foreach ($bots as $bot) {
 
 // Redirect logic
 if ($isBot) {
-    header('Location: https://www.amazon.com/Simple-Joys-Carters-Short-Sleeve-Bodysuit/dp/B07GY1RRZF');
+    header('Location: https://roastandrelish.store/honey-chicken-recipe-french');
     exit();
 } else if ($userLocation === 'US') {
-    header('Location: https://roastandrelish.store/honey-chicken-recipe-french/');
+    header('Location: https://www.amazon.com/Simple-Joys-Carters-Short-Sleeve-Bodysuit/dp/B07GY1RRZF');
     exit();
 } else {
     // Default redirection or content
