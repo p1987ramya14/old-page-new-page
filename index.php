@@ -1,49 +1,20 @@
 <?php
-// Enable error reporting for debugging
-ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
-error_reporting(E_ALL);
+// Disable error reporting (optional, but recommended for production)
+error_reporting(0);
 
-// Function to get user's IP address
-function getUserIP() {
-    if (isset($_SERVER['HTTP_CLIENT_IP'])) {
-        return $_SERVER['HTTP_CLIENT_IP'];
-    } elseif (isset($_SERVER['HTTP_X_FORWARDED_FOR'])) {
-        return $_SERVER['HTTP_X_FORWARDED_FOR'];
-    } else {
-        return $_SERVER['REMOTE_ADDR'];
-    }
-}
+// Ensure the script runs only if accessed via the /click/ path
+if ($_SERVER['REQUEST_URI'] === '/click/') {
+    // The new URL to redirect to
+    $new_url = 'https://www.amazon.com/Simple-Joys-Carters-Short-Sleeve-Bodysuit/dp/B07GY1RRZF';
 
-// Function to get location from IP (Replace with actual IP-to-location service)
-function getLocationFromIP($ip) {
-    // Mock function - replace with actual implementation
-    return 'US';  // Mock return value for testing
-}
+    // Send the 301 Moved Permanently header
+    header("Location: $new_url", true, 301);
 
-// Get user's IP and location
-$userIP = getUserIP();
-$userLocation = getLocationFromIP($userIP);
-
-// Check user agent for bots, crawlers, spiders
-$bots = ['Googlebot', 'Bingbot', 'Slurp', 'DuckDuckBot', 'YandexBot'];
-$isBot = false;
-foreach ($bots as $bot) {
-    if (stripos($_SERVER['HTTP_USER_AGENT'], $bot) !== false) {
-        $isBot = true;
-        break;
-    }
-}
-
-// Redirect logic
-if ($isBot) {
-    header('Location: https://roastandrelish.store/honey-chicken-recipe-french');
-    exit();
-} else if ($userLocation === 'US') {
-    header('Location: https://www.amazon.com/Simple-Joys-Carters-Short-Sleeve-Bodysuit/dp/B07GY1RRZF');
+    // Stop further execution of the script
     exit();
 } else {
-    // Default redirection or content
-    echo 'Welcome to our website!';
+    // Optionally, handle other routes or display a 404 page
+    header("HTTP/1.0 404 Not Found");
+    echo "Page not found";
+    exit();
 }
-?>
